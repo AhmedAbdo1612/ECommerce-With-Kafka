@@ -1,0 +1,74 @@
+﻿@page "/cart/{productId:int}"
+@rendermode InteractiveServer
+@using ECommerce.Web.Utils;
+@using ECommerce.Shared.Models
+@inject ServiceUrls urls
+@inject HttpClient http
+@inject IJSRuntime jS
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm border-0">
+
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h4 class="mb-0 fw-bold">
+                        <i class="bi bi-cart3 me-2"></i>Cart &rarr; @product.Name
+                    </h4>
+                </div>
+
+                <div class="card-body p-4">
+                    <form>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-secondary">Customer Name</label>
+                            <input type="text" class="form-control form-control-lg fs-6" @bind="order.CustomerName" placeholder="Enter your full name" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-secondary">Product Name</label>
+                            <input type="text" class="form-control form-control-lg fs-6 bg-light text-muted" @bind="product.Name" readonly />
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-secondary">Quantity</label>
+                            <input type="number" class="form-control form-control-lg fs-6" @bind="order.Quantity" min="1" />
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-primary btn-lg fs-6 fw-bold py-2.5 shadow-sm" @onclick="CreateOrder" >
+                                Place Order
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int productId { get; set; }
+    public Order order = new Order();
+    public Product product = new Product();
+    protected override async Task OnInitializedAsync()
+    {
+        order.ProductId = productId;
+        product = await http.GetFromJsonAsync<Product>($"{urls.ProductServiceUrl}/product/{productId}");
+        await base.OnInitializedAsync();
+    }
+
+    public async Task CreateOrder()
+    {
+        Console.WriteLine($"\n\n{urls.OrderServiceUrl}\n\n");
+        var res = await http.PostAsJsonAsync<Order>($"{urls.OrderServiceUrl}/order/create-order", order);
+        Console.WriteLine(res.Content);
+        if (res.IsSuccessStatusCode)
+        {
+            await jS.InvokeVoidAsync("alert", "Order created successfully!");
+        }
+    }
+
+}

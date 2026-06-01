@@ -1,0 +1,11 @@
+D:\kafka-services\ECommerce.Shared\bin\Debug\net10.0\ECommerce.Shared.deps.json
+D:\kafka-services\ECommerce.Shared\bin\Debug\net10.0\ECommerce.Shared.dll
+D:\kafka-services\ECommerce.Shared\bin\Debug\net10.0\ECommerce.Shared.pdb
+D:\kafka-services\ECommerce.Shared\obj\Debug\net10.0\ECommerce.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\kafka-services\ECommerce.Shared\obj\Debug\net10.0\ECommerce.Shared.AssemblyInfoInputs.cache
+D:\kafka-services\ECommerce.Shared\obj\Debug\net10.0\ECommerce.Shared.AssemblyInfo.cs
+D:\kafka-services\ECommerce.Shared\obj\Debug\net10.0\ECommerce.Shared.csproj.CoreCompileInputs.cache
+D:\kafka-services\ECommerce.Shared\obj\Debug\net10.0\ECommerce.Shared.dll
+D:\kafka-services\ECommerce.Shared\obj\Debug\net10.0\refint\ECommerce.Shared.dll
+D:\kafka-services\ECommerce.Shared\obj\Debug\net10.0\ECommerce.Shared.pdb
+D:\kafka-services\ECommerce.Shared\obj\Debug\net10.0\ref\ECommerce.Shared.dll

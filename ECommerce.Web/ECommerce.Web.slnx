@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../ECommerce.AppHost/ECommerce.AppHost.csproj" Id="e17bdaf3-ebed-46aa-b235-d2ce4fd334c9" />
+  <Project Path="../ECommerce.OrderService/ECommerce.OrderService.csproj" Id="18a2b0c9-0063-48e1-8d7e-21818580380f" />
+  <Project Path="../ECommerce.ProductService/ECommerce.ProductService.csproj" />
+  <Project Path="../ECommerce.Shared/ECommerce.Shared.csproj" Id="b788b463-3eef-4546-8069-4568a1a85bb4" />
+  <Project Path="ECommerce.Web.csproj" />
+</Solution>

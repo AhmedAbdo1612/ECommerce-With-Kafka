@@ -1,0 +1,28 @@
+﻿@using ECommerce.Shared.Models
+@page "/products"
+@inject HttpClient httpClient
+
+<h3>ProductList</h3>
+<div class="row">
+    @foreach (var p in products)
+    {
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@p.Name</h5>
+                    <p class="card-text">Price: @p.Price</p>
+                    <p class="card-text">Quantity: @p.Quantity</p>
+                    <a href="/cart/@p.Id" class="btn btn-primary">Buy</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@code {
+    private List<Product> products = new List<Product>();
+    protected override async Task OnInitializedAsync()
+    {
+        products = await httpClient.GetFromJsonAsync<List<Product>>("https://localhost:7289/api/product");
+        await base.OnInitializedAsync();
+    }
+}
